@@ -1,0 +1,34 @@
+.products__page{
+    margin-top: 82px;
+    padding-bottom: 150px
+}
+
+
+.products__page .products__category--name{
+    font-weight: normal;
+    font-size: 42px;
+    line-height: 160%;
+}
+
+.products__page .products--list{
+    margin-top: 87.62px;
+}
+
+.products__page .products--list .products__category--list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products__page .products--list .products__category--list .product__list--item{
+
+}
+
+@media (max-width: 480px) {
+    .products__page{
+        margin-top: 50px;
+        padding-bottom: 60px
+    }
+    .products__page .products--list{
+        margin-top: 50px;
+    }
+}

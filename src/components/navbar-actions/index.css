@@ -1,0 +1,52 @@
+.navbar__actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+    height: 40px;
+}
+
+.navbar__actions .currency select{
+    border: none;
+    /* width: 106px; */
+    height: 29px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    margin-right: 20px;
+}
+.navbar__actions .currency option{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar__actions .cart--icon{
+    position: relative;
+
+}
+
+.navbar__actions .cart--icon a {
+}
+
+.navbar__actions .cart--icon a span{
+    position: absolute;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 3px;
+    color: #FFFFFF;
+    background: #1D1F22;
+    border-radius: 50%;
+    left: 0;
+    top: -50%;
+    transform: translate(50%, 50%);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
