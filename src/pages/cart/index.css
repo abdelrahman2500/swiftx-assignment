@@ -1,0 +1,95 @@
+.cart__page {
+    margin-top: 82px;
+    padding-bottom: 150px
+}
+.cart__page .cart__page--name{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 59px;
+}
+
+
+.cart__modal {
+    margin-bottom: 23px;
+}
+.cart__modal .cart__page--name{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 160%;
+}
+.cart__modal--totalprice{
+    margin-top: 51px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.cart__modal--buttons{
+    display:flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+.cart__modal--buttons button{
+    width: 100%;
+    padding: 13px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart__modal--buttons .gotocart{
+    background: #FFFFFF;
+    border: 1px solid #1D1F22;
+}
+.cart__modal--buttons .checkout{
+    background: #5ECE7B;
+    border: 1px solid #5ECE7B;
+    color: #FFF;
+}
+
+
+
+
+
+
+
+.cart__page--checkout{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid seagreen;
+}
+
+.total__price{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+    /* margin-bottom: 12px; */
+}
+
+.cart__page--checkout button{
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #FFF;
+    border-radius: 5px;
+}
+.cart__checkout{
+    background: #5ece7b;
+}
+
+.cart__deletaAll{
+    background: #F44336;
+}

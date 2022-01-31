@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Attributes from '../../components/attributes/Attributes';
 import { useProductInfo } from '../../hooks/useProductInfo';
+import PageNotFound from '../page-not-found/PageNotFound';
 import './index.css'
 
-export default function Product({curr, addToCart}) {
-    const[active, setActive] = useState("")
+export default function Product({curr, addToCart, handleActiveAttrItem}) {
     const params = useParams()
     const {error, data, loading} = useProductInfo(params.productId)
     // console.log(data);
     // const {product} = data
     const [gallery, setGallery] = useState([]) 
+    
 
     useEffect(()=>{
-        data && setGallery(data.product.gallery)
+        data && data.product && setGallery(data.product.gallery)
     },[data])
 
     function handleGallery(e){
@@ -23,20 +25,24 @@ export default function Product({curr, addToCart}) {
         setGallery(newG2)
     }
 
-    function handleAttr(e){
-        setActive(e.target.innerHTML)
-    }
-    
-    
-
     // console.log(gallery);
+
+    // function handleAttr(e,attr,attrParentId,productId){
+
+    //     setAttrId(e.target.innerHTML)
+    //     setAttrParentId(attrParentId)
+    //     setProductId(productId)
+    // }
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
+    // if (data) return <p>Error :(</p>;
 
     return (
         <div className='product__page'>
-            <div className='product__image'>
+        {data.product != null ? 
+        <>
+        <div className='product__image'>
                 {gallery.length != 1 ? 
                     <div className='left'>
                         {gallery.map((img, i)=> ( i > 0 ? 
@@ -61,9 +67,7 @@ export default function Product({curr, addToCart}) {
                     <div className='product__details--attributes' key={attr.id}>
                         <h4 className='attr--name'>{attr.name} :</h4>
                         <div className='attr--items'>
-                            {attr.items.map((item, i)=>(
-                                <span className={`attr--item ${active == item.value || active == item.displayValue ? "active" : i == 0 && active == "" ? "active" : "" }`} key={item.id} onClick={(e)=> handleAttr(e)}>{attr.name == "Color" ? item.displayValue : item.value}</span>
-                            ))}
+                            <Attributes handleActiveAttrItem={handleActiveAttrItem} attributesList={attr.items} productId={data.product.id} attrId={attr.id} incart={false} />
                         </div>
                     </div>
                 ))
@@ -74,19 +78,15 @@ export default function Product({curr, addToCart}) {
                     {data.product.prices.map((price, i) => price.currency.symbol == curr ? <p key={i}>{price.currency.symbol}{price.amount}</p> : "")}
                 </h4>
                 <div className='add-to-cart'>
-                    <button className='' onClick={()=> addToCart(data.product.id)}>add to cart</button>
+                    <button className='' onClick={()=> addToCart(data.product)}>add to cart</button>
                 </div>
                 {data.product.description ? 
                     <div dangerouslySetInnerHTML={{__html: data.product.description}} />
                 :""
                 }
             </div>
-
-
-
-
-
-
+        </>
+        : <PageNotFound />}
         </div>
     );
 }

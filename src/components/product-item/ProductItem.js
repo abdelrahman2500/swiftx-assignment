@@ -23,8 +23,8 @@ export default function ProductItem({product, curr, setCartLength,addToCart}) {
                     <img src={product.gallery[0]} />
                 </div>
                 <div className='product__item--card--details'>
-                    <span className={`${product.inStock ? "" : "hide"}`} onClick={() => product.inStock ? addToCart(product.id) : ""}>
-                        <img src='/images/icons/Vector.png' />
+                    <span className={`${product.inStock ? "" : "hide"}`} onClick={() => product.inStock ? addToCart(product) : ""}>
+                        <img src='/images/icons/Vector-white.png' />
                     </span>
                     <h3 className='product__name'>
                         {product.name}

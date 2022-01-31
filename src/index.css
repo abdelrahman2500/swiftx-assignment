@@ -47,3 +47,8 @@ a{
 .row{
   display: flex;
 }
+
+.attr--item:active,.attr--item.active{
+  background: #1D1F22;
+  color: #FFFFFF;
+}

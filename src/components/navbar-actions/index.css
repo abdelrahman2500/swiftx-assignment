@@ -24,13 +24,13 @@
 
 .navbar__actions .cart--icon{
     position: relative;
-
+    cursor: pointer;
 }
 
 .navbar__actions .cart--icon a {
 }
 
-.navbar__actions .cart--icon a span{
+.navbar__actions .cart--icon  span{
     position: absolute;
 
     font-style: normal;

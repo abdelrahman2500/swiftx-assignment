@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCurrency } from '../../hooks/useCurrency';
 import './index.css'
 
-export default function NavbarActions({curr, cartLength, setCurr}) {
+export default function NavbarActions({curr, cartLength, setCurr, setModalIsOpen}) {
     const {error, data, loading} = useCurrency()
 
 
@@ -18,11 +18,11 @@ export default function NavbarActions({curr, cartLength, setCurr}) {
                     ))}
                 </select>
             </div>
-            <div className='cart--icon'>
-                <Link to="/cart">
+            <div className='cart--icon' onClick={() => setModalIsOpen(true)}>
+                {/* <Link to="/cart"> */}
                     <img src={"/images/icons/Vector.png"} />
                     <span>{cartLength}</span>
-                </Link>
+                {/* </Link> */}
             </div>
         </div>
     )
