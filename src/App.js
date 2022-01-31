@@ -13,6 +13,7 @@ import Home from "./pages/home/Home";
 import Cart from './pages/cart/Cart';
 import { useEffect, useState } from "react";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
+import Loading from "./components/loading/Loading";
 
 function App() {
   const [curr, setCurr] = useState("$");
@@ -95,8 +96,8 @@ function App() {
   const {error, data, loading} = useCategoriesNames()
 
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loading />;
+  if (error) return <PageNotFound />;
 
 
   return(

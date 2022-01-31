@@ -1,0 +1,9 @@
+.page__not__found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.page__not__found img{
+    max-width: 100%;
+}
