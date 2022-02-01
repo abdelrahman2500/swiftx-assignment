@@ -95,7 +95,7 @@ function App() {
   return(
     <div className='App'>
       <div className='container'>
-        <Navbar data={data} cartLength={cartLength} handleDelete={handleDelete} setCartLength={setCartLength} curr={curr} setCurr={setCurr} cartItems={cart} setCartItems={setCart} handleActiveAttrItem={handleActiveAttrItem} />
+        <Navbar data={data} cartLength={cartLength} handleDelete={handleDelete} setCartLength={setCartLength}  curr={curr} setCurr={setCurr} cartItems={cart} setCartItems={setCart} handleActiveAttrItem={handleActiveAttrItem} />
         <Routes>
           <Route exact path="/" element={<Home />}>
           </Route>

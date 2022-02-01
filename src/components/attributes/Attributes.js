@@ -44,9 +44,7 @@ export default function Attributes({attributesList , productId, attrId, handleAc
     return(
         <>
             {attributesList.map((item, i)=>(
-                <span className={`attr--item ${!incart && attrItemValue == item.displayValue ? "active" : selected && productId && attrId && selected.id == productId && selected.attributes.find(el => el.attrId == attrId && el.itemId == item.id)  ? "active" : ""  } `} key={item.id} onClick={(e) => handleAttr(e, item)}>{item.displayValue}
-                {/* {console.log(selected && productId && attrId && selected.id == productId && selected.attributes.find(el => el.attrId == attrId)?.attrId == attrId && selected.attributes.find(el => el.itemId == item.id))} */}
-                </span>
+                <span className={`attr--item ${ attrItemValue == item.displayValue ? "active" : selected && productId && attrId && selected.id == productId && selected.attributes.find(el => el.attrId == attrId && el.itemId == item.id)  ? "active" : ""  } `} key={item.id} onClick={(e) => handleAttr(e, item)}>{item.displayValue}</span>
             ))}
         </>
     );

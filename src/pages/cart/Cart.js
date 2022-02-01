@@ -21,6 +21,7 @@ export default function Cart({cartItems, setCartItems, setCartLength, handleDele
         
     }
 
+    console.log(cartItems);
     function handleDeleteAll(){
         if (window.confirm("are u sure")){
             setCartItems([])

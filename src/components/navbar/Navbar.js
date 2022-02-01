@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderNavigation from '../header-navigation/HeaderNavigation';
 import './index.css'
 import Logo from './../logo/Logo';
