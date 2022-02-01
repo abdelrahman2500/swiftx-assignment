@@ -48,6 +48,7 @@ function App() {
     let filtered = cartItem.filter((item) => item.id !== product.id)
     setCart(filtered)
     localStorage.setItem("cart", JSON.stringify(filtered))
+    setSelected([])
     setCartLength(filtered.length)
 }
 
