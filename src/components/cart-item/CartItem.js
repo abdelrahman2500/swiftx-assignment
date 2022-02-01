@@ -25,7 +25,7 @@ function CartItem({cartItem,cartItems, setCartItems, handleDelete,  inModal, cur
         }
     })
 
-    // console.log(cartItems);
+    // handle cart item count
 
     function handleIncreament(id){
         cartItems.map(el => el.id == id ? el.count++ : "")

@@ -19,11 +19,10 @@ function App() {
   
   const [cart, setCart] = useState(localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [])
   const [selected, setSelected] = useState([])
-  
   const [cartLength, setCartLength] = useState(cart.length);
   
+  // Add product to cart
   function addToCart(product){
-    // console.log();
       let areadyInCart = false ;
       cart.slice().forEach((item) => {
           if(item.id === product.id){
@@ -43,6 +42,7 @@ function App() {
       setCartLength(cart.length)
   }
 
+  // Delete product from cart
   function handleDelete(product){
     let cartItem = cart.slice()
     let filtered = cartItem.filter((item) => item.id !== product.id)
@@ -52,6 +52,7 @@ function App() {
     setCartLength(filtered.length)
 }
 
+  // Handle active attributes in cart products 
   function handleActiveAttrItem(productId,attrId,itemId){
 
     let areadySelected = false ;

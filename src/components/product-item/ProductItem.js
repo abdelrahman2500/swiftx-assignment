@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css'
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function ProductItem({product, curr, setCartLength,addToCart}) {
-    // const [cart, setCart] = useState(sessionStorage.getItem("cart") ? JSON.parse(sessionStorage.getItem("cart")) : [])
 
     const navigate = useNavigate()
     const location = useLocation()
     
-
-
-
     return(
         <div className='product__item' >
             <div className='product__item--card'>
@@ -30,7 +26,6 @@ export default function ProductItem({product, curr, setCartLength,addToCart}) {
                         {product.name}
                     </h3>
                     <p className='product__price'>
-                        {/* {product.prices[0].amount} */}
                         {product.prices.map((price,i) => price.currency.symbol == curr ? 
                             <b key={i}>
                                 {price.currency.symbol}{" "}{price.amount}

@@ -21,10 +21,8 @@ export default function NavbarActions({curr, cartLength, setCurr, setModalIsOpen
                 </select>
             </div>
             <div className='cart--icon' onClick={() => location.pathname != "/cart" && setModalIsOpen(true)}>
-                {/* <Link to="/cart"> */}
-                    <img src={"/images/icons/Vector.png"} />
-                    <span>{cartLength}</span>
-                {/* </Link> */}
+                <img src={"/images/icons/Vector.png"} />
+                <span>{cartLength}</span>
             </div>
         </div>
     )

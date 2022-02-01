@@ -34,6 +34,8 @@ export default function Products({categoryName, curr, setCartLength, addToCart})
                         ))}
                         
                     </div>
+
+                    {/* adding pagination by passing products list and how many products per page */}
                     <Pagination itemsList={category.products} itemsNumberInPage={itemsNumberInPage} page={page} setPage={setPage} />
 
                 </div>

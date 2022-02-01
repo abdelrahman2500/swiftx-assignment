@@ -8,8 +8,6 @@ import './index.css'
 export default function Product({curr, addToCart, handleActiveAttrItem}) {
     const params = useParams()
     const {error, data, loading} = useProductInfo(params.productId)
-    // console.log(data);
-    // const {product} = data
     const [gallery, setGallery] = useState([]) 
     
 
@@ -17,6 +15,7 @@ export default function Product({curr, addToCart, handleActiveAttrItem}) {
         data && data.product && setGallery(data.product.gallery)
     },[data])
 
+    // handle product gallery
     function handleGallery(e){
         let newG2 = []
         newG2.push(e.target.currentSrc)
@@ -25,18 +24,8 @@ export default function Product({curr, addToCart, handleActiveAttrItem}) {
         setGallery(newG2)
     }
 
-    // console.log(gallery);
-
-    // function handleAttr(e,attr,attrParentId,productId){
-
-    //     setAttrId(e.target.innerHTML)
-    //     setAttrParentId(attrParentId)
-    //     setProductId(productId)
-    // }
-
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
-    // if (data) return <p>Error :(</p>;
 
     return (
         <div className='product__page'>

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Cart({cartItems, setCartItems, setCartLength, handleDelete ,curr, active, handleAttr ,setModalIsOpen, inModal , handleActiveAttrItem}) {
     const navigate = useNavigate()
 
-    
+    // handle first step in checkout
     function handleCheckout(){
         if(cartItems.find(el => el.attributes?.length != el.selectedAttributes?.attributes?.length)){
             alert("Please choose what suits you")
@@ -21,7 +21,7 @@ export default function Cart({cartItems, setCartItems, setCartLength, handleDele
         
     }
 
-    console.log(cartItems);
+    // Handle delete all products from cart
     function handleDeleteAll(){
         if (window.confirm("are u sure")){
             setCartItems([])
@@ -34,6 +34,8 @@ export default function Cart({cartItems, setCartItems, setCartLength, handleDele
         navigate("/cart")
     }
 
+
+    // handle empty cart
     if (cartItems.length == 0) return <div className='empty__cart'>
         <img src='https://cdn3.iconfinder.com/data/icons/shopping-and-ecommerce-29/90/empty_cart-512.png' alt="empty cart" />
         <p>Your Bag Is Empty </p> 

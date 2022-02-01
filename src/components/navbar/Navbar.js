@@ -23,6 +23,8 @@ export default function Navbar({data, cartLength, setCartLength, handleDelete, c
                     <NavbarActions cartLength={cartLength} handleDelete={handleDelete} curr={curr} setCurr={setCurr} setModalIsOpen={setModalIsOpen} /> 
                 </div>
             </div>
+
+            {/* Cart modal */}
             <Modal 
                 isOpen={modalIsOpen} 
                 onRequestClose={() => setModalIsOpen(false)}

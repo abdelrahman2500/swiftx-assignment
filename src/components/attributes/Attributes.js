@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 export default function Attributes({attributesList , productId, attrId, handleActiveAttrItem ,selected, incart, cartItems ,setCartItems }) {
     const [attrItemValue, setAttrItemValue] = useState("") 
 
+
+    // Adding selected attributes to cart
     function handleAttr(e,item){
         if(incart) {
             let currentItem = cartItems.find(item => item.id == productId)
@@ -32,12 +34,8 @@ export default function Attributes({attributesList , productId, attrId, handleAc
             cartItems.filter(cartItem => cartItem.id == currentItem.id).push(...cartItems, currentItem)
             setCartItems(cartItems)
             localStorage.setItem("cart", JSON.stringify(cartItems))
-            // setCartItems(JSON.parse(localStorage.getItem("cart")))
-            // console.log(selected?.attributes.find(el => el?.attrId == attrId)?.attrId == attrId);
         }
 
-
-        // console.log(cartItems);
         setAttrItemValue(e.target.innerHTML)
         handleActiveAttrItem(productId,attrId,item.id)
     }
