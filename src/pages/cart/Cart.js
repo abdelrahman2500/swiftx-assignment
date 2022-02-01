@@ -9,10 +9,16 @@ export default function Cart({cartItems, setCartItems, setCartLength, handleDele
 
     
     function handleCheckout(){
-        alert("checkout")
-        setCartItems([])
-        localStorage.removeItem("cart")
-        setCartLength(0)
+        if(cartItems.find(el => el.attributes?.length != el.selectedAttributes?.attributes?.length)){
+            alert("Please choose what suits you")
+        } else {
+            alert("checkout")
+            setCartItems([])
+            localStorage.removeItem("cart")
+            setCartLength(0)
+        }
+        console.log(cartItems.find(el => el.attributes?.length != el.selectedAttributes?.attributes?.length))
+        
     }
 
     function handleDeleteAll(){
@@ -27,7 +33,10 @@ export default function Cart({cartItems, setCartItems, setCartLength, handleDele
         navigate("/cart")
     }
 
-    if (cartItems.length == 0) return <p>Empty Cart</p>;
+    if (cartItems.length == 0) return <div className='empty__cart'>
+        <img src='https://cdn3.iconfinder.com/data/icons/shopping-and-ecommerce-29/90/empty_cart-512.png' alt="empty cart" />
+        <p>Your Bag Is Empty </p> 
+    </div>;
     
 
     return (

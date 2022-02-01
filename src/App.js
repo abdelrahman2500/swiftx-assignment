@@ -2,7 +2,6 @@
 import {
   Routes,
   Route,
-  useNavigate
 } from "react-router-dom";
 import './App.css';
 import Navbar from './components/navbar/Navbar';
@@ -11,7 +10,7 @@ import Products from './pages/products/Products';
 import Product from './pages/product/Product';
 import Home from "./pages/home/Home";
 import Cart from './pages/cart/Cart';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
 import Loading from "./components/loading/Loading";
 
@@ -52,29 +51,23 @@ function App() {
     setCartLength(filtered.length)
 }
 
-//   function handleDelete(product){
-//     setCart(cart.filter(el => el.id !== product.id))
-//     console.log(cart);
-//     localStorage.setItem("cart", JSON.stringify(cart))
-// }
-
-  function handleActiveAttrItem(a,b,c){
+  function handleActiveAttrItem(productId,attrId,itemId){
 
     let areadySelected = false ;
       selected.slice().forEach((item) => {
-          if(item.id === a){
+          if(item.id === productId){
             let modifing = false ;
             item.attributes.slice().forEach(attribute => {
-              if(attribute.attrId == b){
-                attribute.itemId = c
+              if(attribute.attrId == attrId){
+                attribute.itemId = itemId
                 modifing =true;
               } 
               
             })
             if(!modifing){
               item.attributes.push({
-                attrId: b,
-                itemId: c
+                attrId: attrId,
+                itemId: itemId
               })
             }
             areadySelected =true
@@ -82,14 +75,13 @@ function App() {
       })
       if(!areadySelected){
           selected.push({
-            id: a,
+            id: productId,
             attributes: [{
-              attrId: b,
-              itemId: c
+              attrId: attrId,
+              itemId: itemId
             }]
           })
       }
-    // localStorage.setItem("selected", JSON.stringify(selected))
   }
 
 

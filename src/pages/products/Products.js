@@ -10,10 +10,12 @@ export default function Products({categoryName, curr, setCartLength, addToCart})
 
 
     const {error, data, loading} = useProductsList()
-    console.log(error, data, loading);
     useEffect(() => {
         setPage(1)
-    },[])
+        return ()=>{
+            setPage(1)
+        }
+    },[categoryName])
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;

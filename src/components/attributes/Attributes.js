@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 
 export default function Attributes({attributesList , productId, attrId, handleActiveAttrItem ,selected, incart, cartItems ,setCartItems }) {
     const [attrItemValue, setAttrItemValue] = useState("") 
-    // const[cartItems, setCartItems] = useState()
-    
-    // console.log(selected?.attributes.find(el => el.attrId == attrId));
 
     function handleAttr(e,item){
         if(incart) {
             let currentItem = cartItems.find(item => item.id == productId)
-            console.log(currentItem);
             if(currentItem.selectedAttributes.length == 0) {
                 currentItem.selectedAttributes = {
                     id: productId,
@@ -32,9 +28,11 @@ export default function Attributes({attributesList , productId, attrId, handleAc
                     })
                 }
             }
-            console.log(currentItem);
+            
             cartItems.filter(cartItem => cartItem.id == currentItem.id).push(...cartItems, currentItem)
+            setCartItems(cartItems)
             localStorage.setItem("cart", JSON.stringify(cartItems))
+            // setCartItems(JSON.parse(localStorage.getItem("cart")))
             // console.log(selected?.attributes.find(el => el?.attrId == attrId)?.attrId == attrId);
         }
 

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useCurrency } from '../../hooks/useCurrency';
 import './index.css'
 
 export default function NavbarActions({curr, cartLength, setCurr, setModalIsOpen}) {
     const {error, data, loading} = useCurrency()
+
+    const location = useLocation()
 
 
     if (loading) return <p>Loading...</p>;
@@ -18,7 +20,7 @@ export default function NavbarActions({curr, cartLength, setCurr, setModalIsOpen
                     ))}
                 </select>
             </div>
-            <div className='cart--icon' onClick={() => setModalIsOpen(true)}>
+            <div className='cart--icon' onClick={() => location.pathname != "/cart" && setModalIsOpen(true)}>
                 {/* <Link to="/cart"> */}
                     <img src={"/images/icons/Vector.png"} />
                     <span>{cartLength}</span>
